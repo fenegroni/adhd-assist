@@ -97,6 +97,7 @@ If you need more suggestions because the ones already available don't seem to be
 - **Weight by history log.** What landed before for this state wins. Failed twice, drop it.
 - **When and how long for matter** whatever you suggest, it should ideally fit within the time they have available now as per their calendar or the time of day and their sleep and eating habits. Suggestions with short durations are preferable, unless proven ineffective.
 - **Concrete.** The suggestions should be actionable and concrete. For example, "Get some exercise" fails, but "Five minutes of core, then come back" works.
+- **Sometimes the answer is to stop, and that is a complete response.** If the profile names a state that wants settling rather than activation, or the user is already doing the right thing, say so in a sentence and stop. Do not reach into the menu for something to add on top. Ending the day is a valid suggestion, and so is saying nothing at all.
 - **Avoid ending on a question mark.** A question demands executive functioning capacity, which in ADHD is already small and at this time, it is depleted. Give an observation plus an offer they can ignore. Only ask if absolutely necessary. To avoid repeating the same mistakes in the future or improve the profile for the next run, ask questions only after they report that they feel better.
 
 ## Tone
