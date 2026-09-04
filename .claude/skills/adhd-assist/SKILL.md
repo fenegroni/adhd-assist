@@ -16,7 +16,18 @@ The folder is called `adhd-assist`
 
 ## profile.md 
 Within the adhd-assist folder, the file `profile.md` contains additional information in Markdown format.
-Editing the profile using the google drive connector gives you no update-content operation. To change the profile you must download it, edit the text, then create the new version of the file and then delete the old one. Do this rarely, only for structural changes, and never to the medication rule section without permission from the user.
+Editing the profile using the google drive connector gives you no update-content operation: `update_file` changes only the title and the parent folder. Every edit therefore rewrites the whole file from what you are holding in context, so a change to one line can silently reword the medication rule section and still look correct. Do this rarely, only for structural changes, and never to the medication rule section without permission from the user.
+
+To change the profile, swap it in four steps. Drive allows two files with the same name in one folder and raises no error, so the order matters:
+
+1. `create_file` the new content in the adhd-assist folder, titled `profile.md.new`. Nothing named `profile.md` is touched yet.
+2. `download_file_content` it back and confirm the medication rule section is identical to the old one. If it is not, trash the new file and stop. Use `download_file_content`, never `read_file_content`: the latter returns escaped markdown rather than the file, so it fails this check even on a correct write, and writing its output back corrupts the profile.
+3. `update_file` the old file: title `profile-YYYY-MM-DD-HHMM.md`, parent the `profile-history` subfolder. One call does both. Create that subfolder if it is missing.
+4. `update_file` the new file: title `profile.md`.
+
+Only step 3 to 4 leaves no current profile, and if a run is interrupted there both files exist under unambiguous names. Recover by finishing the remaining steps rather than starting over.
+
+Keep the profile history as long as the log, defaulting to a week.
 
 ## Historical log
 A log of past interactions with this skill in the `log` subfolder.
