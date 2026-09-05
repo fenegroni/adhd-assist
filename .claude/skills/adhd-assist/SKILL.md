@@ -21,7 +21,7 @@ Editing the profile using the google drive connector gives you no update-content
 To change the profile, swap it in four steps. Drive allows two files with the same name in one folder and raises no error, so the order matters:
 
 1. `create_file` the new content in the adhd-assist folder, titled `profile.md.new`. Nothing named `profile.md` is touched yet.
-2. `download_file_content` it back and confirm nothing changed except what you meant to change. Any section the user marked as their own must be identical to the old file. If it is not, trash the new file and stop. Use `download_file_content`, never `read_file_content`: the latter returns escaped markdown rather than the file, so it fails this check even on a correct write, and writing its output back corrupts the profile.
+2. `download_file_content` it back and confirm nothing changed except what you meant to change. The profile belongs to the user: every other line must be byte-identical to the old file. If it is not, trash the new file and stop. Use `download_file_content`, never `read_file_content`: the latter returns escaped markdown rather than the file, so it fails this check even on a correct write, and writing its output back corrupts the profile.
 3. `update_file` the old file: title `profile-YYYY-MM-DD-HHMM.md`, parent the `profile-history` subfolder. One call does both. Create that subfolder if it is missing.
 4. `update_file` the new file: title `profile.md`.
 
