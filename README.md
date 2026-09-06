@@ -22,6 +22,10 @@ Copy the skill folder — Claude Code takes the skill's name from the directory,
 mkdir -p ~/.claude/skills && cp -r adhd-assist/.claude/skills/adhd-assist ~/.claude/skills/
 ```
 
+The skill pins `model: opus` and `effort: xhigh` in its frontmatter. Claude Code applies that to
+the turn the skill runs in; surfaces that read only `name` and `description` — probably including
+the phone app — will use whatever model is selected there.
+
 Then create a folder called `adhd-assist` in the root of your Google Drive and put your
 `profile.md` in it, starting from the example. Logs are written to an `adhd-assist/log`
 subfolder, one file per entry.
@@ -40,6 +44,12 @@ Either way it never decides anything about medication. It reads your own rule ba
 stops.
 
 ## Things worth knowing before you rely on it
+
+**The bar for speaking up is lower in voice than in text.** Typed, two signals have to agree
+before it says anything unprompted; spoken, one is enough. At a keyboard the explicit ask is
+cheap and a wrong guess costs a screen of advice; in voice the explicit ask is the awkward part,
+half the typed evidence (typos, message shape) is erased by transcription, and a wrong guess
+costs one sentence you can talk over.
 
 **One suggestion, never a menu.** A ranked list is a decision, and deciding is the part that's
 impaired. One wrong suggestion gets ignored; a menu means nothing happens at all.

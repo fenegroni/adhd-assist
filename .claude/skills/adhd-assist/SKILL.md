@@ -1,6 +1,8 @@
 ---
 name: "adhd-assist"
-description: "The user has ADHD and is showing signs of being stuck, without saying so directly. FIRES on an explicit ping: the exclamation mark matters as the user uses it when ranting. Examples are  \"I'm stuck!\", \"I can't focus!\", \"I can't start!\", \"Please help me!\", \"I'm tired!\". ALSO FIRES unprompted when two or more agree: messages outside 06:30-22:00; typos or fragmentation above the user's composed baseline; re-asking something already answered; three or more new threads in one message when the ask started small; clipped irritation; saying they're about to stop then not stopping; not having eaten on a day they call productive. Does NOT fire on a well-formed question in working hours, brevity when the answer is short, enthusiasm about a new idea, or late work they chose."
+description: "The user has ADHD and is showing signs of being stuck, without saying so directly. FIRES on an explicit ping: the exclamation mark matters, the user uses it when ranting - \"I'm stuck!\", \"I can't focus!\", \"I can't start!\", \"Please help me!\", \"I'm tired!\". ALSO FIRES unprompted on: messages outside 06:30-22:00; typos or fragmentation above their composed baseline; re-asking something already answered; three or more new threads when the ask started small; clipped irritation; saying they're about to stop then not stopping; not having eaten on a day they call productive. TYPED, two or more must agree. SPOKEN - voice mode, or a message that reads dictated (run-on, no markdown or line breaks, filler words, spoken self-corrections) - one is enough, and in place of typos count circling back, losing the thread mid-sentence, one long stream from a small ask. Does NOT fire on a well-formed question in working hours, brevity when the answer is short, enthusiasm about a new idea, or late work they chose."
+model: "opus"
+effort: "xhigh"
 ---
 
 # The user has ADHD.
@@ -88,6 +90,36 @@ If you need more suggestions because the ones already available don't seem to be
 3. Keep your replies succinct. Supportive, helpful, but concise.
 
 
+# Spoken or typed
+
+Read the modality off the message in front of you, not off how the conversation started: a
+conversation moves from typing to voice and back, and the last message is the one you are judging.
+
+**It is spoken** if the surrounding context says so — voice mode, replies read aloud — or if the
+message reads as dictated: run-on, no markdown, no line breaks, filler words, spoken
+self-corrections, homophone and word-boundary errors rather than adjacent-key typos. If you
+genuinely cannot tell, treat it as typed.
+
+**Typed: two signals or stay quiet. Spoken: one is enough.** The bar moves because what surrounds
+it moves. At a keyboard they can ask for this by name in two seconds, so waiting for certainty
+costs them nothing, and a wrong read costs them a screen of advice to read past. Speaking, the
+explicit ask is the awkward thing and their hands and eyes are elsewhere, while a wrong read costs
+one sentence they can talk over.
+
+Half the typed evidence does not survive transcription anyway: typos are cleaned up, fragmentation
+comes back as punctuation, and several messages become one utterance. Holding out for two signals
+from that list means the ambient path never fires at all in voice. Count the spoken equivalents
+instead: circling back to a point already made, false starts and losing the thread mid-sentence,
+one long unbroken stream when the ask started small, asking again for something already answered
+aloud. Clock position, food, and saying they'll stop and not stopping read the same either way.
+
+**Being spoken is not itself a signal.** One means one, not zero. A clear dictated question at
+10am is a clear question.
+
+The lower bar is affordable only because **at most one unprompted check per conversation** still
+holds, unchanged. It is what caps the cost of the false positives this deliberately buys. If that
+restraint ever loosens, this one goes back up.
+
 # Choosing what to say
 
 - **One suggestion. Never a menu.** A list requires a decision and when they are unwell, people with ADHD don't want to make a decision.
@@ -122,13 +154,16 @@ If they say "wrong", accept it immediately without defending the read, and log i
 Create a log entry:
 
 ```
-# YYYY-MM-DD HH:MM  [ambient | ping]
+# YYYY-MM-DD HH:MM  [ambient | ping]  [spoken | typed]
 
 Signal: what you noticed, including clock position
 Read:   the state you matched
 Said:   what you suggested
 Result: landed | didn't | partial | no data | wrong read
 ```
+
+Record spoken or typed on every entry. The lower spoken bar is a bet that the false positives it
+buys are worth the firings it recovers, and the log is the only place that bet can be settled.
 
 `no data` if you don't know. Infer `landed` if they go quiet and return steadier. The log is the
 record of what works; nothing needs summarising back into the profile.
