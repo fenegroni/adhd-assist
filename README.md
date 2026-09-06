@@ -51,6 +51,11 @@ cheap and a wrong guess costs a screen of advice; in voice the explicit ask is t
 half the typed evidence (typos, message shape) is erased by transcription, and a wrong guess
 costs one sentence you can talk over.
 
+**In voice it says one holding line before it reads your files.** Fetching your profile, log and
+calendar takes a few seconds, and speech has no spinner — the pause otherwise sounds like the
+call dropped. The line is about fetching, not about you: *"hang on, let me look at your notes."*
+It closes the loop afterwards even when the answer is silence.
+
 **One suggestion, never a menu.** A ranked list is a decision, and deciding is the part that's
 impaired. One wrong suggestion gets ignored; a menu means nothing happens at all.
 
